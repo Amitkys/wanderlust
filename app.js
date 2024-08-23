@@ -84,7 +84,7 @@ app.use((req, res, next) => {
   res.locals.error = req.flash("error");
   next();
 })
-
+/* TESTING USER
 app.get("/demouser", async (req, res) => {
   let fakeUser = new User({
     email: 'kys@amit.com',
@@ -93,6 +93,7 @@ app.get("/demouser", async (req, res) => {
   let registeredUser = await User.register(fakeUser, "amitkys@123");
   res.send(registeredUser);
 })
+*/
 
 
 app.use("/listings", listingsRoutes);
