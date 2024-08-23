@@ -13,7 +13,7 @@ router.post("/signup", wrapAsync( async(req, res) => {
         const { username, email, password } = req.body;
         const newUser = new User({ email, username }); // instance of User models
         const registeredUser = await User.register(newUser, password);
-        console.log(registeredUser);
+        // console.log(registeredUser);
         req.flash("success", "Register Successfully!");
         res.redirect("/listings");
     }catch(e){
