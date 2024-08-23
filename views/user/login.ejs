@@ -1,1 +1,21 @@
 <% layout('./main.ejs') -%>
+<div class="row mt-3">
+    <div class="col-12 offset-4">
+        <h3 class="mb-5">Login</h3>
+        <form action="/signup" method="post" class="needs-validation" novalidate>
+            <div class="mb-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                <label class="mb-2 form-label" class="form-label" for="username">username</label>
+                <input class="form-control" id="username" type="text" name="username" value="" required>
+                <div class="invalid-feedback">incorrect username</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                <label class="mb-2 form-label" class="form-label" for="password">password</label>
+                <input class="form-control" id="password" type="password" name="password" value="" required>
+                <!-- <div class="valid-feedback">Looks good!</div> -->
+                <div class="invalid-feedback">incorrect email</div>
+            </div>
+            <button class="btn btn-success">Log in</button>
+        </form>
+    </div>
+</div>
