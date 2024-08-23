@@ -1,0 +1,133 @@
+
+html, body {
+    height: 100%;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+
+body{
+  
+    font-family: "Nunito", sans-serif;
+}
+
+/* navbar  */
+.navbar{
+    height: 5rem;
+    background-color: black !important;
+}
+.collapse, .collapse ul, .collapse form{
+    background-color: black !important;
+}
+.collapse, ul, li, a{
+    margin-left: 8px;
+}
+.navbar-brand{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.navbar-brand:hover{
+    color: #fe424d;
+}
+.nav-link{
+    color: white !important;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+    color: red;
+}
+.f-info{
+    display: flex;
+    height: 8rem;
+    background-color: gray;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+
+
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text p{
+    font-weight: 600;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+.navbar-toggler{
+    background-color: white;
+}
+.card{
+    margin-top: 20px;
+}
+.card .img-card {
+    height: 45vh;
+   
+    margin-bottom: 13px;
+}
+
+.card button{
+    padding: 3px 50px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.card button a{
+    text-decoration: none;
+}
+
+
+
+#show-card{
+    width:50%;
+    margin-left:25%;
+}
+
+@media (max-width: 500px) {
+    .card{
+        margin-top: 20px;
+        
+    }
+    .card .img-card{
+        height: 300px;
+        margin-bottom: 16px;
+        padding: 0 0px;
+    }
+    #show-card{
+        width:100%;
+        margin-left:0;
+    }
+}
+/* alert  */
+.alert{
+    margin: 0 200px ;
+    margin-top: 27px;
+
+}
+@media (max-width: 800px) {
+    .alert{
+        margin: 0 30px;
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,24 @@
+<% layout('./main.ejs') -%>
+<div class="container" style="margin-top: 80px;">
+    <h1>All Registered Listing</h1>
+    <hr>
+   
+    <div class="row">
+        <% for(let listing of allListing) { %>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <a href="/listings/<%=listing.id%>" style="text-decoration: none; color: inherit;">
+                    <div class="card listing-card">
+                        <img class="card-img-top" src="<%=listing.image%>" alt="listing image" style="height: 20rem;">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <p class="card-text"><strong><%=listing.title %></strong><br>
+                                <span>&#8377;</span> <%=listing.price.toLocaleString()%> /night
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <% } %>
+    </div>
+    
+  

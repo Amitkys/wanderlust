@@ -1,0 +1,50 @@
+<% layout('./main') -%>
+
+<div class="container" style="margin-top: 80px;">
+    <h3 style="font-weight: bold;">Create a new listing</h3>
+<hr>
+<form action="/listings" method="POST" class="needs-validation" id="dataForm" style="margin-left: 2%;" novalidate>
+    
+    <div class="row needs-validation" novalidate>
+ 
+        <div class="mb-4 col-lg-4 col-md-6 col-sm-12 col-12">
+            <label class="mb-2 form-label" class="form-label" for="title">Title*</label>
+            <input class="form-control" type="text" id="title" name="listing[title]" placeholder="enter title here.." value="" required>
+            <div class="invalid-feedback">Title length must be 5 or more</div>
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="mb-4 col-lg-4 col-md-6 col-sm-12 col-12">
+            <label class="mb-2" class="form-label" for="description">Description</label>
+            <input class="form-control" type="text" name="listing[description]" id="description" placeholder="write Description.." value="" required>
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="mb-4 col-lg-4 col-md-6 col-sm-12 col-12">
+            <label class="mb-2" class="form-label" for="price">Price*</label>
+            <input class="form-control" type="number" id="price" name="listing[price]" placeholder="ex. 1200" required value="">
+            <div class="invalid-feedback">can't be less than zero</div>
+        </div>
+        <div class="mb-4 col-lg-4 col-md-6 col-sm-12 col-12">
+            <label class="mb-2" class="form-label"  for="image">Image</label>
+            <input class="form-control" type="text" name="listing[image]" id="image" placeholder="paste image url" value="" >
+        </div>
+        <div class="mb-4 col-lg-4 col-md-6 col-sm-12 col-12">
+            <label class="mb-2" class="form-label" for="location">Location</label>
+            <input class="form-control" type="text" name="listing[location]" id="location" placeholder="type location here.." value="" required>
+        </div>
+        <div class="mb-3 col-lg-4 col-md-6 col-sm-12 col-12">
+            <label class="form-label" for="country">Country</label>
+            <input class="form-control" type="text" name="listing[country]" id="country" placeholder="type Country name.." value="" required>
+          
+        </div>  
+      
+    </div>
+    <a href=""><button type="submit" id="btn" style="margin: 18px; padding: 5px 100px;" class="btn btn-danger">Add Listing</button> </a>
+</form>
+</div>
+
+<script src="/JavaScript/script.js"></script>
+    
+
+
+
+
