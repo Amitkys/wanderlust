@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -7,19 +8,23 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
-const passportStrategy = require('passport-local');
+const LocalStrategy = require('passport-local');
+
 // models
 const User = require('./models/user.js');
 
-const app = express();
+
+// exporting router
+const listingsRoutes = require("./routes/listing.js");
+const reviewRoutes = require("./routes/review.js");
+const userRoutes = require("./routes/user.js");
 
 // Middleware to parse URL-encoded bodies (form data)
 app.use(bodyParser.urlencoded({ extended: true }));
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
-// exporting router
-const listingsRoutes = require("./routes/listing.js");
-const reviewRoutes = require("./routes/review.js");
+
+
 
 
 
@@ -50,8 +55,13 @@ const sessionOptions = {
 }
 app.use(session(sessionOptions)); 
 app.use(flash());
+// passport things
 app.use(passport.initialize());
 app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+// use static serialize and deserialize of model for passport session support
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Async function to connect to MongoDB
 async function main() {
@@ -75,10 +85,19 @@ app.use((req, res, next) => {
   next();
 })
 
+app.get("/demouser", async (req, res) => {
+  let fakeUser = new User({
+    email: 'kys@amit.com',
+    username: 'amitkys'
+  });
+  let registeredUser = await User.register(fakeUser, "amitkys@123");
+  res.send(registeredUser);
+})
+
 
 app.use("/listings", listingsRoutes);
-
 app.use("/listings/:id/reviews", reviewRoutes);
+app.use("/", userRoutes);
 
 
 // error testing
