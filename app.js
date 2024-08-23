@@ -6,7 +6,10 @@ const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
-
+const passport = require('passport');
+const passportStrategy = require('passport-local');
+// models
+const User = require('./models/user.js');
 
 const app = express();
 
@@ -47,6 +50,8 @@ const sessionOptions = {
 }
 app.use(session(sessionOptions)); 
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Async function to connect to MongoDB
 async function main() {
