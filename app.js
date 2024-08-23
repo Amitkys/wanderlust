@@ -59,7 +59,7 @@ async function main() {
 
 // Default route
 app.get("/", (req, res) => {
- res.render('./listing/home.ejs');
+ res.redirect('/listings');
 });
 
 // middleware
