@@ -33,7 +33,14 @@ router.get("/", wrapAsync( async (req, res) => {
 }));
 // Route to render form for adding new listing
 router.get('/new', (req, res) => {
+  if(!req.isAuthenticated()){
+    req.flash("error", "Please login to create new listing");
+    res.redirect('/login');
+  }
+  else{
     res.render("./listing/new.ejs");
+  }
+    
 });
 
 // Route to update data
