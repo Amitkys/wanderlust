@@ -40,7 +40,8 @@ router.post("/login", saveRedirectUrl,
     }),
     async (req, res) => {
         req.flash("success", "login successful");
-        res.redirect(res.locals.redirectUrl);
+        const redirecURL = res.locals.redirectUrl || '/listings'
+        res.redirect(redirecURL);
     })
 router.get('/logout', (req, res) => {
     req.logout((err) => {
